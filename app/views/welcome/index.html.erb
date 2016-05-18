@@ -1,13 +1,15 @@
-<h1>Welcome to our app</h1>
+<h1>VHS|DB</h1>
 
 
 
 <% if current_user %>
+<p>Click here to
 <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+</p>
 <%else%>
 <ul>
-  <li><%= link_to 'Login', new_user_session_path %></li>
-  <li><%= link_to 'Create New User', new_user_registration_path %></li>
+  <li>If you have an account <%= link_to 'Login', new_user_session_path %></li>
+  <li>To access the database <%= link_to 'Create New User', new_user_registration_path %></li>
 </ul>
 
 <% end %>

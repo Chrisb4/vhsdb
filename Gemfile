@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# add devise for user authentification
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'

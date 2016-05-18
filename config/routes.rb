@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
+  resource :profile, except: [:destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
+
+#these get routes were put here by rails, didn't want to delete them
+  #get 'profiles/_form'
+
+  #get 'profiles/edit'
+
+  #get 'profiles/new'
+
+  #get 'profiles/show'
+
 
   # You can have the root of your site routed with "root"
    root 'welcome#index'
