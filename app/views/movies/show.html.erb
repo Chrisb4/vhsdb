@@ -1,0 +1,27 @@
+<h1>Show it up</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>YouTube</th>
+      <th>Thumbnail</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr>
+      <td><%= @movie.title %></td>
+      <td><%= @movie.summary %></td>
+      <td><%= @movie.youtube.html_safe %></td>
+      <td><img src=<%= @movie.thumbnail %> alt=""></td>
+      <td>
+
+      </td>
+    </tr>
+
+  </tbody>
+</table>

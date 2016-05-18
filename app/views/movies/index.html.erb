@@ -1,0 +1,30 @@
+<h1><%= params[:action] == 'index' ? 'Movies' : params[:action].titleize %></h1>
+
+<%= link_to 'Create Movie', new_movie_path %>
+<h1>Movies Index</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>YouTube</th>
+      <th>Thumbnail</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @movies.each do |movie| %>
+    <tr>
+      <td><%= link_to movie.title.titleize, movie %></td>
+      <td><%= movie.summary %></td>
+      <td><%= movie.youtube %></td>
+      <td><%= movie.thumbnail %></td>
+      <td>
+        <%= link_to 'Edit', edit_movie_path(movie) %>|
+        <%= link_to 'Delete', movie, method: :delete %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

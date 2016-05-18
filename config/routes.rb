@@ -1,6 +1,28 @@
 Rails.application.routes.draw do
+  get 'reviews/_form'
+
+  get 'reviews/edit'
+
+  get 'reviews/show'
+
+  get 'reviews/index'
+
+  get 'reviews/new'
+
+  get 'actors/_form'
+
+  get 'actors/edit'
+
+  get 'actors/show'
+
+  get 'actors/index'
+
+  get 'actors/new'
+
   devise_for :users
   resource :profile, except: [:destroy]
+  resources :movies
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518160444) do
+ActiveRecord::Schema.define(version: 20160518201934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actors", force: :cascade do |t|
+    t.string   "name"
+    t.string   "birth_year"
+    t.string   "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "movies", force: :cascade do |t|
+    t.string   "title"
+    t.string   "summary"
+    t.string   "youtube"
+    t.string   "thumbnail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +41,17 @@ ActiveRecord::Schema.define(version: 20160518160444) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.integer  "movie_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["movie_id"], name: "index_reviews_on_movie_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -44,4 +72,6 @@ ActiveRecord::Schema.define(version: 20160518160444) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "profiles", "users"
+  add_foreign_key "reviews", "movies"
+  add_foreign_key "reviews", "users"
 end
